@@ -1,25 +1,38 @@
 import type { Metadata } from "next";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "CyberAI Security Professional Program | Sundaram Mishra",
   description:
-    "A premium 12-week AI and cybersecurity program by Sundaram Mishra. Learn ethical hacking, AI security, Python automation, threat intelligence, phishing defense, LLM security, SOC workflows, and portfolio-ready CyberAI projects.",
+    "A premium 12-week AI and cybersecurity professional program by Sundaram Mishra. Learn ethical hacking, AI security, Python automation, LLM defense, SOC workflows, and portfolio-ready CyberAI projects.",
   keywords: [
     "AI cybersecurity course",
     "ethical hacking with AI",
     "CyberAI course",
-    "AI security program",
     "LLM security",
     "SOC automation",
     "cybersecurity portfolio projects",
+    "AI security program",
     "Sundaram Mishra",
   ],
   authors: [{ name: "Sundaram Mishra" }],
   openGraph: {
     title: "CyberAI Security Professional Program",
     description:
-      "Become an ethical hacker in the era of AI. Build AI-powered cybersecurity tools, SOC workflows, LLM defense systems, and portfolio-ready projects.",
+      "A premium 12-week AI and cybersecurity program for ethical security builders, AI-powered defense, LLM security, and CyberAI portfolio projects.",
     type: "website",
     locale: "en_US",
     siteName: "CyberAI Security Professional Program",
@@ -28,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CyberAI Security Professional Program",
     description:
-      "A premium 12-week AI + cybersecurity program taught by Sundaram Mishra.",
+      "A premium AI + cybersecurity professional program taught by Sundaram Mishra.",
   },
 };
 
@@ -39,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${manrope.variable} ${playfair.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,546 +1,455 @@
-const curriculum = [
+const chapters = [
   {
-    week: "Week 01",
+    week: "01",
     title: "CyberAI Mindset",
     subtitle:
-      "Understand the new cybersecurity landscape where ethical hackers, defenders, analysts, and attackers are all being reshaped by artificial intelligence.",
-    outcomes: ["AI in cyber defense", "Ethical boundaries", "Cyber kill chain", "Modern security careers"],
+      "How artificial intelligence is reshaping ethical hacking, cyber defense, analyst workflows, and the future of security careers.",
+    lab: "CyberAI career map and responsible AI security checklist",
   },
   {
-    week: "Week 02",
+    week: "02",
     title: "Secure Lab",
     subtitle:
-      "Set up a professional, isolated cybersecurity lab for responsible AI-assisted experiments, safe testing, and hands-on learning.",
-    outcomes: ["Kali Linux setup", "Virtual labs", "Python workspace", "GitHub portfolio base"],
+      "Design a safe, isolated cybersecurity lab with Kali Linux, virtual machines, Python workspace, GitHub structure, and controlled testing rules.",
+    lab: "Professional lab setup documentation",
   },
   {
-    week: "Week 03",
+    week: "03",
     title: "Security Prompting",
     subtitle:
-      "Use AI as a cybersecurity reasoning partner for threat analysis, vulnerability explanation, log review, and security documentation.",
-    outcomes: ["Prompt frameworks", "Threat analysis", "Report drafting", "Output verification"],
+      "Use AI as a serious cybersecurity reasoning partner for threat explanation, log review, vulnerability understanding, and report drafting.",
+    lab: "Cybersecurity prompt playbook",
   },
   {
-    week: "Week 04",
+    week: "04",
     title: "Python Automation",
     subtitle:
-      "Automate repetitive security tasks using Python, including IOC extraction, log parsing, file scanning, and structured security utilities.",
-    outcomes: ["Regex", "IOC extraction", "Log parsing", "Command-line tools"],
+      "Build small but useful Python tools for IOC extraction, file parsing, regex-based detection, log processing, and security utilities.",
+    lab: "IOC extractor and log parser",
   },
   {
-    week: "Week 05",
+    week: "05",
     title: "Threat Intelligence",
     subtitle:
-      "Transform raw threat information into analyst-ready intelligence briefs using AI-assisted summarization, classification, and MITRE-style thinking.",
-    outcomes: ["IOC analysis", "TTP mapping", "Threat briefs", "Executive summaries"],
+      "Convert raw cyber reports into analyst-ready intelligence briefs using AI-assisted summarization, classification, and MITRE-style thinking.",
+    lab: "AI threat intelligence brief generator",
   },
   {
-    week: "Week 06",
+    week: "06",
     title: "Vulnerability Analysis",
     subtitle:
-      "Learn how to understand CVEs, CWEs, CVSS scores, business impact, remediation steps, and professional vulnerability reporting.",
-    outcomes: ["CVE analysis", "Risk scoring", "Remediation plans", "Security reporting"],
+      "Understand CVEs, CWEs, CVSS, business impact, remediation planning, and professional vulnerability explanation using AI support.",
+    lab: "Vulnerability risk assistant",
   },
   {
-    week: "Week 07",
+    week: "07",
     title: "LLM Security",
     subtitle:
-      "Study the security risks of AI applications, including prompt injection, jailbreaks, unsafe tool use, data leakage, and guardrail design.",
-    outcomes: ["Prompt injection", "Jailbreak risks", "Guardrails", "Safe AI workflows"],
+      "Study prompt injection, jailbreaks, unsafe tool use, data leakage, guardrail design, and defensive architecture for AI applications.",
+    lab: "Prompt injection defense checker",
   },
   {
-    week: "Week 08",
+    week: "08",
     title: "Phishing Defense",
     subtitle:
-      "Analyze phishing attempts using AI, language signals, sender mismatch, urgency patterns, suspicious links, and social engineering indicators.",
-    outcomes: ["Email analysis", "Risk scoring", "Social engineering", "Defense playbooks"],
+      "Analyze phishing attempts using language signals, sender mismatch, suspicious links, urgency patterns, and social engineering indicators.",
+    lab: "AI phishing risk analyzer",
   },
   {
-    week: "Week 09",
+    week: "09",
     title: "Malware Triage",
     subtitle:
-      "Learn safe malware-analysis thinking using hashes, strings, sandbox-style reports, suspicious behavior indicators, and AI-generated triage notes.",
-    outcomes: ["Static indicators", "Sandbox reports", "YARA basics", "Triage summaries"],
+      "Learn safe malware-analysis thinking using hashes, strings, sandbox-style reports, behavior indicators, and AI-generated triage summaries.",
+    lab: "Malware triage report assistant",
   },
   {
-    week: "Week 10",
+    week: "10",
     title: "AI SOC Operations",
     subtitle:
-      "Build AI-assisted security monitoring workflows for logs, alerts, suspicious activity, timelines, and incident investigation summaries.",
-    outcomes: ["SOC workflow", "SIEM thinking", "Alert analysis", "Incident timelines"],
+      "Build AI-assisted monitoring workflows for logs, alerts, suspicious activity, incident timelines, and security investigation summaries.",
+    lab: "SOC log investigation copilot",
   },
   {
-    week: "Week 11",
+    week: "11",
     title: "Security Agents",
     subtitle:
-      "Design controlled AI security assistants that can read logs, classify incidents, suggest response actions, and generate analyst reports.",
-    outcomes: ["Agent workflows", "Tool use", "Human approval", "Response reports"],
+      "Design controlled AI security assistants that can read files, classify incidents, suggest response actions, and generate analyst reports.",
+    lab: "CyberAI assistant workflow",
   },
   {
-    week: "Week 12",
+    week: "12",
     title: "Capstone Lab",
     subtitle:
-      "Build a portfolio-ready CyberAI product with architecture, documentation, demo assets, GitHub repository, and a professional project report.",
-    outcomes: ["Capstone build", "Demo video", "GitHub README", "Final presentation"],
+      "Build a portfolio-ready CyberAI product with architecture, GitHub documentation, demo assets, and a professional final report.",
+    lab: "Final capstone project",
   },
 ];
 
-const projects = [
+const pillars = [
   {
-    title: "AI Phishing Risk Analyzer",
-    text: "Detect social engineering signals, suspicious links, urgency language, and credential-theft patterns.",
+    title: "Think",
+    text: "Understand cyber risk, attacker behavior, ethical boundaries, and AI limitations before touching tools.",
   },
   {
-    title: "Threat Intelligence Brief Generator",
-    text: "Convert long threat reports into executive summaries, technical notes, indicators, and recommended actions.",
+    title: "Investigate",
+    text: "Reason through logs, phishing emails, threat reports, vulnerabilities, and suspicious behavior with AI support.",
   },
   {
-    title: "Vulnerability Report Assistant",
-    text: "Explain CVEs, business impact, severity, affected systems, and remediation steps in professional format.",
+    title: "Automate",
+    text: "Build Python and AI-assisted workflows that reduce repetitive analyst work and improve consistency.",
   },
   {
-    title: "Prompt Injection Defense Checker",
-    text: "Identify suspicious LLM inputs and design safer AI application workflows with human approval.",
-  },
-  {
-    title: "SOC Log Investigation Copilot",
-    text: "Analyze authentication logs, detect suspicious events, build timelines, and generate analyst-style summaries.",
-  },
-  {
-    title: "Malware Triage Report Assistant",
-    text: "Summarize mock malware indicators safely using hashes, strings, behavior notes, and response guidance.",
+    title: "Defend",
+    text: "Design secure AI usage patterns, LLM guardrails, SOC workflows, and professional response reports.",
   },
 ];
 
-const bonuses = [
-  "Cybersecurity report writing templates",
-  "GitHub portfolio setup guide",
-  "AI security career roadmap",
-  "Interview explanation framework",
-  "Capstone project documentation structure",
-  "Responsible AI and ethical hacking checklist",
+const outcomes = [
+  "Safe cybersecurity lab setup",
+  "Cybersecurity prompt playbook",
+  "Python IOC extraction toolkit",
+  "Threat intelligence brief workflow",
+  "Vulnerability risk reporting assistant",
+  "Prompt injection defense checker",
+  "AI phishing analysis system",
+  "SOC-style log investigation copilot",
+];
+
+const projectCards = [
+  "AI Phishing Risk Analyzer",
+  "Threat Intelligence Brief Generator",
+  "Vulnerability Report Assistant",
+  "Prompt Injection Defense Checker",
+  "SOC Log Investigation Copilot",
+  "Malware Triage Report Assistant",
 ];
 
 const faqs = [
   {
-    q: "Is this course only about ChatGPT prompts?",
-    a: "No. The program teaches cybersecurity-first thinking. AI is used as a professional layer for analysis, automation, reporting, and defense workflows.",
+    q: "Is this a hacking shortcut course?",
+    a: "No. It is a professional AI and cybersecurity program focused on ethical learning, defensive thinking, controlled labs, and real security workflows.",
   },
   {
-    q: "Will students build projects?",
-    a: "Yes. Students build multiple CyberAI tools and finish with one portfolio-ready capstone project.",
+    q: "Does the course include projects?",
+    a: "Yes. Each major section produces a practical CyberAI project, and the course ends with a polished capstone suitable for GitHub and presentations.",
   },
   {
-    q: "Is this course beginner friendly?",
-    a: "Yes. Basic computer knowledge is enough to start. Python and Linux are introduced step by step inside the course.",
+    q: "Is it beginner friendly?",
+    a: "Yes. The course starts with fundamentals and gradually moves into AI security, Python automation, LLM defense, and SOC-style workflows.",
   },
   {
-    q: "Is this course ethical and safe?",
-    a: "Yes. All labs are taught inside controlled environments with responsible use, legal boundaries, and defensive learning as the foundation.",
+    q: "What makes this premium?",
+    a: "The program is structured around portfolio outcomes, professional reporting, guided labs, ethical boundaries, and real CyberAI product thinking.",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#030712] text-white">
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#06b6d440,transparent_35%),radial-gradient(circle_at_top_right,#8b5cf640,transparent_30%),linear-gradient(180deg,#030712_0%,#020617_100%)]" />
-        <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
+    <main>
+      <header className="page-shell site-header">
+        <a href="#" className="brand">
+          <span className="brand-symbol">CA</span>
+          <span>
+            <span className="brand-name">CyberAI Security</span>
+            <span className="brand-caption">Professional Program</span>
+          </span>
+        </a>
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <a href="#" className="group">
-            <p className="text-lg font-black tracking-tight">CyberAI Security</p>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-300">
-              Professional Program
-            </p>
-          </a>
+        <nav className="nav">
+          <a href="#method">Method</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#projects">Projects</a>
+          <a href="#mentor">Instructor</a>
+        </nav>
+      </header>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-            <a href="#curriculum" className="hover:text-white">Curriculum</a>
-            <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="#pricing" className="hover:text-white">Program</a>
-            <a href="#mentor" className="hover:text-white">Instructor</a>
-            <a
-              href="#apply"
-              className="rounded-full bg-cyan-300 px-5 py-2.5 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 hover:bg-cyan-200"
-            >
-              Apply Now
-            </a>
-          </nav>
-        </header>
+      <section className="page-shell hero">
+        <div>
+          <p className="eyebrow">12-week premium cohort</p>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 pt-16 lg:grid-cols-[1.1fr_0.9fr] lg:pb-32 lg:pt-24">
-          <div>
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100">
-              <span className="h-2 w-2 rounded-full bg-cyan-300" />
-              12-Week Premium Cohort • AI + Ethical Cybersecurity
-            </div>
+          <h1 className="display hero-title">
+            AI for Ethical Cybersecurity.
+          </h1>
 
-            <h1 className="max-w-5xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-              Become an Ethical Hacker in the Era of AI.
-            </h1>
+          <p className="hero-subtitle">
+            A professional program by <strong>Sundaram Mishra</strong> for learners who want to build
+            AI-powered security tools, automate analyst workflows, understand LLM defense, and graduate
+            with portfolio-ready CyberAI projects.
+          </p>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-              A professional hands-on program taught by <span className="font-semibold text-white">Sundaram Mishra</span>,
-              designed to help learners build AI-powered cybersecurity tools, security automation workflows,
-              LLM defense systems, and portfolio-ready CyberAI projects.
-            </p>
+          <p className="hero-note">
+            Designed as a serious training pathway for ethical hacking, cyber defense, threat intelligence,
+            phishing analysis, vulnerability reporting, and SOC-style investigation.
+          </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#apply"
-                className="rounded-full bg-cyan-300 px-8 py-4 text-center text-base font-black text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:-translate-y-0.5 hover:bg-cyan-200"
-              >
-                Join the Program
-              </a>
-              <a
-                href="#curriculum"
-                className="rounded-full border border-white/15 bg-white/5 px-8 py-4 text-center text-base font-black text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10"
-              >
-                Explore Curriculum
-              </a>
-            </div>
-
-            <div className="mt-12 grid max-w-2xl grid-cols-3 gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-3xl font-black text-white">12</p>
-                <p className="mt-1 text-sm text-slate-400">Weeks</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-3xl font-black text-white">8+</p>
-                <p className="mt-1 text-sm text-slate-400">CyberAI Tools</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-3xl font-black text-white">1</p>
-                <p className="mt-1 text-sm text-slate-400">Capstone</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur">
-            <div className="rounded-[1.5rem] border border-white/10 bg-[#070b18] p-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
-                    Premium Program
-                  </p>
-                  <h2 className="mt-2 text-2xl font-black">CyberAI Builder Track</h2>
-                </div>
-                <div className="rounded-2xl bg-cyan-300 px-4 py-3 text-sm font-black text-slate-950">
-                  2026
-                </div>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                {[
-                  "Ethical hacking mindset with AI-first awareness",
-                  "Python automation for real security workflows",
-                  "Threat intelligence and vulnerability reporting",
-                  "LLM security, prompt injection, and guardrails",
-                  "SOC-style log analysis and incident summaries",
-                  "Capstone project for GitHub and interviews",
-                ].map((item) => (
-                  <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-cyan-300" />
-                    <p className="text-sm leading-6 text-slate-200">{item}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-2xl bg-gradient-to-r from-cyan-300 to-violet-300 p-[1px]">
-                <div className="rounded-2xl bg-[#070b18] p-5">
-                  <p className="text-sm font-semibold text-slate-300">Core Promise</p>
-                  <p className="mt-2 text-xl font-black">
-                    Not just prompts. Not just tools. Real CyberAI thinking.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="hero-actions">
+            <a href="#curriculum" className="button primary">View Curriculum</a>
+            <a href="#projects" className="button secondary">Explore Projects</a>
           </div>
         </div>
+
+        <aside className="program-dossier">
+          <div className="dossier-top">
+            <div>
+              <p className="dossier-label">Program dossier</p>
+              <h2 className="display dossier-title">
+                CyberAI Builder Track
+              </h2>
+            </div>
+            <span className="dossier-badge">Flagship</span>
+          </div>
+
+          <div className="dossier-grid">
+            <div className="dossier-stat">
+              <strong>12</strong>
+              <span>guided weeks</span>
+            </div>
+            <div className="dossier-stat">
+              <strong>8+</strong>
+              <span>practical builds</span>
+            </div>
+            <div className="dossier-stat">
+              <strong>1</strong>
+              <span>capstone project</span>
+            </div>
+            <div className="dossier-stat">
+              <strong>0</strong>
+              <span>reckless shortcuts</span>
+            </div>
+          </div>
+
+          <ul className="dossier-list">
+            <li>Ethical hacking mindset with AI-first awareness</li>
+            <li>Python automation for repeatable security workflows</li>
+            <li>Threat intelligence, phishing defense, and vulnerability reporting</li>
+            <li>LLM security, prompt injection defense, and safe AI usage patterns</li>
+            <li>SOC-style investigation, report writing, and final project presentation</li>
+          </ul>
+        </aside>
       </section>
 
-      <section className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 text-center md:grid-cols-4">
-          <p className="font-bold text-slate-300">Ethical Hacking</p>
-          <p className="font-bold text-slate-300">AI Security</p>
-          <p className="font-bold text-slate-300">Python Automation</p>
-          <p className="font-bold text-slate-300">SOC Workflows</p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Why this program exists
-            </p>
-            <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-              Cybersecurity is no longer only about tools. It is about intelligent defense.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg leading-8 text-slate-300">
-            <p>
-              Attackers are using AI to move faster. Defenders need to become sharper,
-              more systematic, and more automated. This program trains students to use
-              AI responsibly for investigation, threat understanding, security reporting,
-              and defensive automation.
-            </p>
-            <p>
-              The course is built for learners who want premium, practical, portfolio-focused
-              cybersecurity training instead of random tutorials, copied commands, or shallow AI prompts.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {[
-            {
-              title: "Cybersecurity First",
-              text: "AI is taught as a professional layer on top of real security thinking, not as a shortcut.",
-            },
-            {
-              title: "Builder Based",
-              text: "Every major module helps students build tools, reports, workflows, or portfolio assets.",
-            },
-            {
-              title: "Ethically Designed",
-              text: "All learning follows responsible use, controlled labs, and clear legal boundaries.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
-              <h3 className="text-2xl font-black">{item.title}</h3>
-              <p className="mt-4 leading-7 text-slate-300">{item.text}</p>
+      <section className="strip">
+        <div className="page-shell strip-inner">
+          {["Ethical Hacking", "AI Security", "Python Automation", "SOC Workflows"].map((item) => (
+            <div className="strip-item" key={item}>
+              <small>Focus</small>
+              <strong>{item}</strong>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-slate-50 text-slate-950">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-700">
-                Student outcomes
-              </p>
-              <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-                Learn to investigate, automate, defend, and report.
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                This program is designed to create visible proof of skill through projects,
-                documentation, demos, and security workflows.
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                "Set up a safe cybersecurity lab",
-                "Use AI responsibly for analysis",
-                "Automate security tasks with Python",
-                "Analyze phishing, logs, CVEs, and threat reports",
-                "Understand LLM security risks",
-                "Build portfolio-ready CyberAI tools",
-                "Write professional security reports",
-                "Present a final capstone project",
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border border-slate-200 bg-white p-5 font-bold shadow-sm">
-                  <span className="mr-2 text-cyan-700">✓</span>
-                  {item}
-                </div>
-              ))}
-            </div>
+      <section id="method" className="page-shell section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Program method</p>
+            <h2 className="display section-title">
+              A clean learning system for serious CyberAI builders.
+            </h2>
           </div>
-        </div>
-      </section>
 
-      <section id="curriculum" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            Full curriculum
+          <p className="section-subtitle">
+            The course follows a professional progression: understand the security problem, investigate
+            with AI support, automate repetitive work, and defend through responsible systems. Every chapter
+            moves the learner closer to a portfolio-grade cybersecurity capability.
           </p>
-          <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-            A 12-week roadmap from cyber fundamentals to AI-powered defense projects.
-          </h2>
         </div>
 
-        <div className="mt-14 grid gap-5">
-          {curriculum.map((item) => (
-            <article
-              key={item.week}
-              className="grid gap-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-0.5 hover:bg-white/[0.06] md:grid-cols-[140px_1fr_300px]"
-            >
-              <div>
-                <p className="rounded-full bg-cyan-300/10 px-4 py-2 text-center text-sm font-black text-cyan-200">
-                  {item.week}
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{item.subtitle}</p>
-              </div>
-              <div className="grid gap-2">
-                {item.outcomes.map((outcome) => (
-                  <p key={outcome} className="rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-slate-300">
-                    {outcome}
-                  </p>
-                ))}
-              </div>
+        <div className="pillars">
+          {pillars.map((pillar, index) => (
+            <article className="pillar" key={pillar.title}>
+              <span className="pillar-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="bg-[#07111f]">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Portfolio projects
-            </p>
-            <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-              Students graduate with real CyberAI project assets.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              Each project is designed for GitHub, interviews, internships, academic profiles,
-              and professional demonstrations.
+      <section className="light-section">
+        <div className="page-shell section">
+          <div className="section-header">
+            <div>
+              <p className="eyebrow">Student outcomes</p>
+              <h2 className="display section-title">
+                Smaller promises. Stronger proof.
+              </h2>
+            </div>
+
+            <p className="section-subtitle">
+              Students do not only finish with knowledge. They finish with visible work: tools, reports,
+              workflows, documentation, and a capstone project that can be shown professionally.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <div key={project.title} className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7">
-                <h3 className="text-xl font-black">{project.title}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{project.text}</p>
-              </div>
+          <div className="outcome-grid">
+            {outcomes.map((item) => (
+              <article className="outcome-card" key={item}>
+                <small>Deliverable</small>
+                <strong>{item}</strong>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="pricing" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section id="curriculum" className="page-shell section">
+        <div className="section-header">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-              Premium cohort experience
-            </p>
-            <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-              Designed to feel serious, guided, and career-focused.
+            <p className="eyebrow">12-week curriculum</p>
+            <h2 className="display section-title">
+              From cyber foundations to AI-powered defense projects.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              This is positioned as a high-value professional program, not a cheap tutorial collection.
-              Students receive structure, labs, projects, templates, and a capstone direction.
-            </p>
           </div>
 
-          <div className="rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 to-violet-400/10 p-8">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-200">
-              Included
-            </p>
-            <div className="mt-6 grid gap-3">
-              {bonuses.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-black/20 p-4 font-semibold text-slate-200">
-                  ✓ {item}
-                </div>
-              ))}
-            </div>
-            <a
-              href="#apply"
-              className="mt-8 block rounded-full bg-cyan-300 px-8 py-4 text-center font-black text-slate-950 hover:bg-cyan-200"
-            >
-              Request Program Details
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="mentor" className="bg-slate-50 text-slate-950">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-10 rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-200/70 md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-700">
-                Instructor
-              </p>
-              <h2 className="mt-5 text-4xl font-black tracking-tight">
-                Sundaram Mishra
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Sundaram teaches cybersecurity-first AI skills for learners who want to understand
-                ethical hacking, secure systems, AI-assisted investigation, and modern cyber defense workflows.
-              </p>
-            </div>
-
-            <div className="rounded-[1.5rem] bg-slate-950 p-8 text-white">
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-                Teaching philosophy
-              </p>
-              <p className="mt-5 text-2xl font-black leading-10">
-                “Use AI as a security partner, not a shortcut. Learn the fundamentals,
-                verify the outputs, build the tools, and stay responsible.”
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
-            FAQ
+          <p className="section-subtitle">
+            Each chapter has a compact title, a deeper professional subtitle, and a clear project outcome.
+            The structure is intentionally original and built around practical CyberAI workflows.
           </p>
-          <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-            Clear, ethical, and professional.
-          </h2>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-4xl gap-5">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
-              <h3 className="text-xl font-black">{faq.q}</h3>
-              <p className="mt-3 leading-7 text-slate-300">{faq.a}</p>
+        <div className="curriculum-list">
+          {chapters.map((chapter) => (
+            <article className="chapter-row" key={chapter.week}>
+              <div className="chapter-week">{chapter.week}</div>
+
+              <h3 className="chapter-title">{chapter.title}</h3>
+
+              <p className="chapter-copy">{chapter.subtitle}</p>
+
+              <p className="chapter-lab">
+                <span>Lab outcome</span>
+                {chapter.lab}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="page-shell section">
+        <div className="projects-layout">
+          <div>
+            <p className="eyebrow">Portfolio projects</p>
+            <h2 className="display section-title">
+              A portfolio that looks like real capability.
+            </h2>
+            <p className="hero-note">
+              The projects are designed to feel practical, explainable, and professional. They help learners
+              demonstrate cybersecurity understanding, AI workflow design, automation ability, and ethical judgment.
+            </p>
+          </div>
+
+          <div className="project-grid">
+            {projectCards.map((project, index) => (
+              <article className="project-card" key={project}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <h3>{project}</h3>
+                <p>
+                  A guided build designed for GitHub documentation, project explanation,
+                  and professional presentation.
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-shell section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Course architecture</p>
+            <h2 className="display section-title">
+              Built like a professional security workflow.
+            </h2>
+          </div>
+
+          <p className="section-subtitle">
+            The course is structured to feel like how real security teams think: inputs, reasoning,
+            automation, and polished outputs.
+          </p>
+        </div>
+
+        <div className="architecture">
+          {[
+            ["Input", "Threat reports, phishing samples, logs, CVEs, prompts, and security cases."],
+            ["Reasoning", "AI-assisted analysis with verification, context, ethics, and analyst judgment."],
+            ["Automation", "Python tools, structured workflows, rule-based checks, and report generation."],
+            ["Output", "Portfolio projects, investigation summaries, documentation, and capstone demo."],
+          ].map(([label, text]) => (
+            <div className="arch-row" key={label}>
+              <div className="arch-key">{label}</div>
+              <div className="arch-value">{text}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="apply" className="bg-cyan-300 text-slate-950">
-        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-          <p className="text-sm font-black uppercase tracking-[0.25em]">
-            Enrollment inquiry
-          </p>
-          <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
-            Build AI tools that defend the digital world.
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-8">
-            Join the CyberAI Security Professional Program and learn how to build
-            ethical, practical, AI-powered cybersecurity workflows from scratch.
-          </p>
+      <section id="mentor" className="light-section">
+        <div className="page-shell section">
+          <div className="instructor-card">
+            <div>
+              <p className="eyebrow">Instructor</p>
+              <h2 className="display section-title">
+                Sundaram Mishra
+              </h2>
+              <p>
+                Sundaram teaches cybersecurity-first AI skills for learners who want to understand ethical
+                hacking, secure systems, AI-assisted investigation, and modern cyber defense workflows.
+              </p>
+            </div>
 
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="mailto:your-email@example.com?subject=CyberAI Security Program Inquiry"
-              className="rounded-full bg-slate-950 px-8 py-4 font-black text-white hover:bg-slate-800"
-            >
-              Email for Enrollment
-            </a>
-            <a
-              href="https://wa.me/910000000000"
-              className="rounded-full border border-slate-950 px-8 py-4 font-black hover:bg-slate-950 hover:text-white"
-            >
-              WhatsApp Inquiry
-            </a>
+            <div className="quote-box">
+              <p className="display">
+                “Use AI as a security partner, not a shortcut. Learn the fundamentals, verify the outputs,
+                build the tools, and stay responsible.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-shell section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">FAQ</p>
+            <h2 className="display section-title">
+              Clear, ethical, and professional.
+            </h2>
           </div>
 
-          <p className="mt-6 text-sm font-semibold">
-            Replace the email and WhatsApp number with your official contact details.
+          <p className="section-subtitle">
+            The program is positioned for serious learners who want practical skill, not unsafe shortcuts.
+          </p>
+        </div>
+
+        <div className="faq-list">
+          {faqs.map((faq) => (
+            <article className="faq-item" key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="final-panel">
+        <div className="page-shell">
+          <p className="eyebrow">Final position</p>
+          <h2 className="display">
+            Not a prompt course. A CyberAI capability program.
+          </h2>
+          <p>
+            Designed for learners who want to move beyond tutorials and build practical, ethical,
+            AI-powered cybersecurity workflows.
           </p>
         </div>
       </section>
 
-      <footer className="mx-auto max-w-7xl px-6 py-10 text-sm text-slate-400">
-        <div className="flex flex-col justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p>© 2026 CyberAI Security Professional Program. All rights reserved.</p>
-          <p>Ethical learning only. Controlled labs. Responsible AI use.</p>
-        </div>
+      <footer className="page-shell footer">
+        <p>© 2026 CyberAI Security Professional Program. All rights reserved.</p>
+        <p>Ethical learning only. Controlled labs. Responsible AI use.</p>
       </footer>
     </main>
   );
